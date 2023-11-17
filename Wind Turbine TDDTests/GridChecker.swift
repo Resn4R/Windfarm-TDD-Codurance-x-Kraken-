@@ -13,68 +13,73 @@ struct GridChecker {
     case left, right, up, down, topLeading, topTrailing, bottomLeading, bottomTrailing
     }
     
-    func isWindFarmValid(size number: Int, grid: [[String]]) -> Bool {
+    func isWindFarmValid(size: Int, grid: [[String]]) -> Bool {
         
-        guard (number*number) == grid.joined().count
+        guard (size*size) == grid.joined().count
         else { return false }
         
-        for row in 0..<grid.count-1 {
-            for column in 0..<grid[0].count-1 {
-                
-                if grid[row][column] == "+" {
-                    let turbineLocation = (row: row,column: column)
+        switch size {
+        case 0: return false
+        case 1: return grid == [["+"]] ? true : false
+        default:
+            for row in 0..<grid.count-1 {
+                for column in 0..<grid[0].count-1 {
                     
-                    if turbineLocation.row > 0 {
-                        let topIsValid = areSurroundingsValid(of: turbineLocation, onSide: .up, inGrid: grid)
+                    if grid[row][column] == "+" {
+                        let turbineLocation = (row: row,column: column)
                         
-                        guard topIsValid else { return false }
-                    }
-                    
-                    if turbineLocation.column > 0 {
-                       let leftIsValid = areSurroundingsValid(of: turbineLocation, onSide: .left, inGrid: grid)
+                        if turbineLocation.row > 0 {
+                            let topIsValid = areSurroundingsValid(of: turbineLocation, onSide: .up, inGrid: grid)
+                            
+                            guard topIsValid else { return false }
+                        }
                         
-                        guard leftIsValid else { return false }
-                    }
-                    
-                    if turbineLocation.column < grid[row].count {
-                        let rightIsValid = areSurroundingsValid(of: turbineLocation, onSide: .right, inGrid: grid)
+                        if turbineLocation.column > 0 {
+                           let leftIsValid = areSurroundingsValid(of: turbineLocation, onSide: .left, inGrid: grid)
+                            
+                            guard leftIsValid else { return false }
+                        }
                         
-                        guard rightIsValid else { return false }
-                    }
-                    
-                    if turbineLocation.row < grid.count {
-                       let bottomIsValid = areSurroundingsValid(of: turbineLocation, onSide: .down, inGrid: grid)
+                        if turbineLocation.column < grid[row].count {
+                            let rightIsValid = areSurroundingsValid(of: turbineLocation, onSide: .right, inGrid: grid)
+                            
+                            guard rightIsValid else { return false }
+                        }
                         
-                        guard bottomIsValid else { return false }
-                    }
-                    
-                    if turbineLocation.row > 0 && turbineLocation.column > 0 {
-                        let topLeadIsValid = areSurroundingsValid(of: turbineLocation, onSide: .topLeading, inGrid: grid)
+                        if turbineLocation.row < grid.count {
+                           let bottomIsValid = areSurroundingsValid(of: turbineLocation, onSide: .down, inGrid: grid)
+                            
+                            guard bottomIsValid else { return false }
+                        }
                         
-                        guard topLeadIsValid else { return false }
-                    }
-                    
-                    if turbineLocation.row > 0  && turbineLocation.column < grid[row].count {
-                        let topLeadIsValid = areSurroundingsValid(of: turbineLocation, onSide: .topTrailing, inGrid: grid)
+                        if turbineLocation.row > 0 && turbineLocation.column > 0 {
+                            let topLeadIsValid = areSurroundingsValid(of: turbineLocation, onSide: .topLeading, inGrid: grid)
+                            
+                            guard topLeadIsValid else { return false }
+                        }
                         
-                        guard topLeadIsValid else { return false }
-                    }
-                    
-                    if turbineLocation.row < grid.count && turbineLocation.column > 0 {
-                        let topLeadIsValid = areSurroundingsValid(of: turbineLocation, onSide: .bottomLeading, inGrid: grid)
+                        if turbineLocation.row > 0  && turbineLocation.column < grid[row].count {
+                            let topLeadIsValid = areSurroundingsValid(of: turbineLocation, onSide: .topTrailing, inGrid: grid)
+                            
+                            guard topLeadIsValid else { return false }
+                        }
                         
-                        guard topLeadIsValid else { return false }
-                    }
-                    
-                    if turbineLocation.row < grid.count && turbineLocation.column < grid[row].count {
-                        let topLeadIsValid = areSurroundingsValid(of: turbineLocation, onSide: .bottomTrailing, inGrid: grid)
+                        if turbineLocation.row < grid.count && turbineLocation.column > 0 {
+                            let topLeadIsValid = areSurroundingsValid(of: turbineLocation, onSide: .bottomLeading, inGrid: grid)
+                            
+                            guard topLeadIsValid else { return false }
+                        }
                         
-                        guard topLeadIsValid else { return false }
+                        if turbineLocation.row < grid.count && turbineLocation.column < grid[row].count {
+                            let topLeadIsValid = areSurroundingsValid(of: turbineLocation, onSide: .bottomTrailing, inGrid: grid)
+                            
+                            guard topLeadIsValid else { return false }
+                        }
                     }
                 }
             }
+            return true
         }
-        return true
         
     }
             

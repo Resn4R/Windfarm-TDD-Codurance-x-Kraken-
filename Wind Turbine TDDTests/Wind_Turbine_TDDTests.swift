@@ -10,6 +10,18 @@ import XCTest
 
 final class Wind_Turbine_TDDTests: XCTestCase {
     
+    func testGivenA0x0GridShouldReturnFalse() {
+        let windFarm: [[String]] = [[]]
+        
+        let n = 0
+        
+        XCTAssertFalse(GridChecker().isWindFarmValid(size: n, grid: windFarm))
+    }
+    
+    func testGivenA1x1GridWhenPositioningIsNOTvalidShouldReturnFalse() {
+        let windFarm
+    }
+    
     func testGivenA1x1GridWhenPositioningIsValidShouldReturnTrue() {
         let windFarm: [[String]] = [["+"]]
         
