@@ -14,6 +14,7 @@
 		4F5708F42B069915002CC2B6 /* Wind_Turbine_TDDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5708F32B069915002CC2B6 /* Wind_Turbine_TDDTests.swift */; };
 		4F5708FE2B069915002CC2B6 /* Wind_Turbine_TDDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5708FD2B069915002CC2B6 /* Wind_Turbine_TDDUITests.swift */; };
 		4F5709002B069915002CC2B6 /* Wind_Turbine_TDDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5708FF2B069915002CC2B6 /* Wind_Turbine_TDDUITestsLaunchTests.swift */; };
+		4F57090D2B069943002CC2B6 /* GridChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57090C2B069943002CC2B6 /* GridChecker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		4F5708F92B069915002CC2B6 /* Wind Turbine TDDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wind Turbine TDDUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F5708FD2B069915002CC2B6 /* Wind_Turbine_TDDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wind_Turbine_TDDUITests.swift; sourceTree = "<group>"; };
 		4F5708FF2B069915002CC2B6 /* Wind_Turbine_TDDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wind_Turbine_TDDUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4F57090C2B069943002CC2B6 /* GridChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridChecker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				4F5708F32B069915002CC2B6 /* Wind_Turbine_TDDTests.swift */,
+				4F57090C2B069943002CC2B6 /* GridChecker.swift */,
 			);
 			path = "Wind Turbine TDDTests";
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F57090D2B069943002CC2B6 /* GridChecker.swift in Sources */,
 				4F5708E52B069914002CC2B6 /* ContentView.swift in Sources */,
 				4F5708E32B069914002CC2B6 /* Wind_Turbine_TDDApp.swift in Sources */,
 			);
