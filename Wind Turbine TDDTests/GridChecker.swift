@@ -18,6 +18,13 @@ struct GridChecker {
         guard (size*size) == grid.joined().count
         else { return false }
         
+        //check needs fixing: windmills.count == size
+        guard grid.flatMap({ row in
+            row.filter { plot in
+                plot == "+"
+            }
+        }).count == size else { return false }
+        
         switch size {
         case 0: return false
         case 1: return grid == [["+"]] ? true : false

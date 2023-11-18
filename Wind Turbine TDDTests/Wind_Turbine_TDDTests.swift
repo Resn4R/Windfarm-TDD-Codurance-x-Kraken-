@@ -74,4 +74,26 @@ final class Wind_Turbine_TDDTests: XCTestCase {
         XCTAssertTrue(GridChecker().isWindFarmValid(size: n, grid: windFarm))
     }
 
+    
+    func testGivenAGridWhenPositioningIsNOTvalidShouldReturnFalse() {
+        
+        let windFarm = [
+            [",",",",",",","],
+            [",",",",",","+"],
+            ["+",",",",",","],
+            [",",",","+",","]
+        ]
+        
+        let n = 4
+        
+        XCTAssertFalse(GridChecker().isWindFarmValid(size: n, grid: windFarm))
+    }
+    
+    func testGivenAnOptionalGridShouldReturnFalse(){
+        let windfarm: [[String]]? = nil
+        
+        let n = 4
+        
+        XCTAssertFalse(GridChecker().isWindFarmValid(size: n, grid: windfarm))
+    }
 }
