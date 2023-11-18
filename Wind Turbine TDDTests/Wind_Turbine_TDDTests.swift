@@ -94,6 +94,6 @@ final class Wind_Turbine_TDDTests: XCTestCase {
         
         let n = 4
         
-        XCTAssertFalse(GridChecker().isWindFarmValid(size: n, grid: windfarm))
+        XCTAssertFalse(GridChecker().isWindFarmValid(size: n, grid: windfarm ?? [[String]]()))
     }
 }
